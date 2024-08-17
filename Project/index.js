@@ -8,12 +8,12 @@ const userRouter = require("./Routes/user.Route")
 const noteRouter = require("./Routes/note.Route")
 const server = express();
 const PORT = process.env.PORT || 3005
-server.use(express.json())
-server.use('/user',userRouter)
-server.use('/Note',auth , noteRouter)
 server.use(cors({
     origin: "*",
 }))
+server.use(express.json())
+server.use('/user',userRouter)
+server.use('/Note',auth , noteRouter)
 
 server.get("/dashboard",(req,res)=>{
     res.send("Dashboard data")
