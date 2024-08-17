@@ -15,30 +15,10 @@ server.use(express.json())
 server.use('/user',userRouter)
 server.use('/Note',auth , noteRouter)
 
-server.get("/dashboard",(req,res)=>{
-    res.send("Dashboard data")
+server.get("/",(req,res)=>{
+    res.send("Server is running fine")
 })
 
-server.get("/product",(req,res)=>{
-    res.send("Product data")
-})
-
-server.get("/cart",auth,(req,res)=>{
-    res.send("cart data....")
-})
-
-server.get("/checkout",auth,(req,res)=>{
-    console.log("reqbody",req.body)
-    res.send("checkout data...")
-})
-
-server.get("/update",[auth,checkAdmin],(req,res)=>{
-    res.send("update data...")
-})
-
-server.get("/delete",[auth,checkAdmin],(req,res)=>{
-    res.send("delete data...")
-})
 server.listen(PORT, async()=>{
     try{
         await connection
